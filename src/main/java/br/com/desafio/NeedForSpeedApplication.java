@@ -178,7 +178,8 @@ public class NeedForSpeedApplication implements NeedForSpeedInterface {
     @Override
     @Desafio("trocarCor")
     public void trocarCor(Long idCarro, String cor) {
-        throw new UnsupportedOperationException();
+        Carro carro = buscarCarroPorId(idCarro).orElseThrow(CarroNaoEncontradoException::new);
+        carro.setCor(cor);
     }
 
     private Optional<Piloto> buscarPilotoPorId(Long id) {
